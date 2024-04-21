@@ -1,2 +1,0 @@
-# pharmacy-frontend
-# pharmacy-frontend
