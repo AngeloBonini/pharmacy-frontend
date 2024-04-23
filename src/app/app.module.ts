@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { MatTableModule } from '@angular/material/table';
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
-    MatTableModule 
+    MatTableModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

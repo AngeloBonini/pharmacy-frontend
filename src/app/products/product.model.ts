@@ -1,3 +1,5 @@
+import { SafeUrl } from "@angular/platform-browser";
+
 // src/app/products/product.model.ts
 export interface Product {
     id: string;
@@ -6,5 +8,6 @@ export interface Product {
     price: number;
     quantityInStock: number;
     isControlled: boolean;
+    image?: SafeUrl;
   }
   
