@@ -7,7 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 @Component({
   selector: 'app-product-list',
   templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.css'],
+  styleUrls: ['./products-list.component.scss'],
   standalone: true,
   imports: [CommonModule, MatTableModule]
 })
