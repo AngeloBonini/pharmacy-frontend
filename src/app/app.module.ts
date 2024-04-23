@@ -21,12 +21,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    RouterModule,
-    MatTableModule,
-    MatCardModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
