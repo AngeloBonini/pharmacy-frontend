@@ -7,12 +7,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { DomSanitizer } from '@angular/platform-browser';
 import {MatIconModule} from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatCardModule, MatIconModule]
+  imports: [CommonModule, MatTableModule, MatCardModule, MatIconModule, MatGridListModule]
 })
 export class ProductListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'description', 'price', 'quantityInStock', 'isControlled'];

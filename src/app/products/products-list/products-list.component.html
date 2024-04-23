@@ -1,18 +1,22 @@
 <!-- src/app/products/product-list.component.html -->
-<mat-card class="product-card" *ngFor="let product of dataSource">
-    <div class="product-type-bar"></div>
-    <mat-card-header>
-        <!-- Add icons or badges here -->
-        <mat-icon>favorite_border</mat-icon>
-        <mat-card-title>{{ product.name }}</mat-card-title>
+<mat-grid-list cols="4" rowHeight="350px" gutterSize="10px">
+    <mat-grid-tile *ngFor="let product of dataSource">
+        <mat-card class="product-card">
+            <mat-card-header>
+        <mat-card-title>
+            {{ product.name }}
+            <mat-icon>favorite_border</mat-icon>
+        </mat-card-title>
         <mat-card-subtitle>{{ product.price | currency }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="product.image" alt="{{ product.name }}" loading="lazy">
-    <mat-card-content>
-        <p>{{ product.description }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>BUY</button>
-        <button mat-button>DETAILS</button>
-    </mat-card-actions>
-</mat-card>
+        </mat-card-header>
+        <img mat-card-image [src]="product.image" alt="{{ product.name }}" loading="lazy">
+        <mat-card-content>
+            <p>{{ product.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>BUY</button>
+            <button mat-button>DETAILS</button>
+        </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+    </mat-grid-list>
