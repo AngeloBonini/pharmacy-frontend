@@ -1,0 +1,9 @@
+/* src/app/products/product-list.component.scss */
+.product-list-container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+}
