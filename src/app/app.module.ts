@@ -9,9 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { UsersListComponent } from './user/users-list/users-list.component';
+import { UserPageComponent } from './user/user-page/user-page.component';
 @NgModule({
   declarations: [
     AppComponent,
+    UsersListComponent,
+    UserPageComponent,
   ],
   imports: [
     ProductListComponent,
