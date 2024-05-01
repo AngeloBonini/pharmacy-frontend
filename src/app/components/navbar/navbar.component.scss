@@ -1,0 +1,38 @@
+/* navbar.component.scss */
+.navbar {
+    background-color: #007bff;
+    padding: 0.5rem 1rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    margin-right: 20px;
+}
+
+.navbar-links li:last-child {
+    margin-right: 0;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+
+    &:hover {
+        color: #ccc;
+    }
+}
+
+.navbar-actions {}
