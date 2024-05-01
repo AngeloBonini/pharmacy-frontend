@@ -1,10 +1,10 @@
-<!-- src/app/app.component.html -->
 <div class="app-container">
   <header>
     <h1>{{ title }}</h1>
   </header>
   <main>
-    <router-outlet></router-outlet> <!-- Angular Router will inject components based on the current route here -->
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
   </main>
   <footer>
     <p>© 2024 Pharmacy System</p>
