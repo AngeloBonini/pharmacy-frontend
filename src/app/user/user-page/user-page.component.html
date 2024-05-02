@@ -1,1 +1,20 @@
-<p>user-page works!</p>
+<!-- src/app/user/user-page/user-page.component.html -->
+<div *ngIf="user$ | async as user" class="user-profile">
+    <img [src]="user.photoUrl" alt="User photo">
+    <div *ngIf="!editMode; ">
+        <h2>{{ user.name }}</h2>
+        <p>Role: {{ user.role }}</p>
+        <p>Age: {{ user.age }}</p>
+        <ul>
+            <li *ngFor="let item of user.shoppingList">{{ item }}</li>
+        </ul>
+        <button (click)="toggleEditMode()">Edit</button>
+    </div>
+    <!-- <ng-template #editForm>
+        <input [(ngModel)]="user.name">
+        <input [(ngModel)]="user.role" type="text">
+        <input [(ngModel)]="user.age" type="number">
+        <button (click)="toggleEditMode()">Save</button>
+    </ng-template> -->
+</div>
+<div *ngIf="!user$">Loading user...</div>
