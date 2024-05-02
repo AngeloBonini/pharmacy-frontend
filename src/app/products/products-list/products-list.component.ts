@@ -1,6 +1,6 @@
 // src/app/products/product-list.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../product.model';
+import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
