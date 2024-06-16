@@ -1,13 +1,13 @@
 // src/app/products/product-list.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../products.service';
-import { Product } from '../product.model';
+import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { DomSanitizer } from '@angular/platform-browser';
 import {MatIconModule} from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ProductService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-product-list',
@@ -23,13 +23,12 @@ export class ProductListComponent implements OnInit {
   constructor(private productService: ProductService, private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    this.productService.getAllProducts().subscribe(products => {
+    this.productService.getAllProducts().subscribe((products: Product[]) => {
       this.dataSource = products;
       this.dataSource.forEach(product => {
-        this.productService.getRandomImage().subscribe(blob => {
+        this.productService.getRandomImage().subscribe((blob: Blob | MediaSource) => {
           const objectURL = URL.createObjectURL(blob);
           product.image = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-          // Now product.image can be used in the component's template to display an image
         });
       });
     });
