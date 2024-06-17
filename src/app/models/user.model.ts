@@ -1,9 +1,10 @@
-export interface User {
+export type User = {
     id: string;
     name: string;
     age: number;
     role: string;
     photoUrl: string;
-    shoppingList: string[];
+    email?:string;
+    shoppingList?: string[];
   }
   

@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { UsersListComponent } from './user/users-list/users-list.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatCardModule
   ],
