@@ -5,8 +5,29 @@ $text-color: #333;
 $button-hover-color: darken($secondary-color, 15%);
 $card-background: #fff;
 $card-hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 // Global container styles
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+  .mat-raised-button,
+  .mat-stroked-button {
+      transition: transform 0.2s;
+  }
+
+  .mat-raised-button:hover,
+  .mat-stroked-button:hover {
+      transform: scale(1.05);
+  }
+
+  .mat-stroked-button {
+      border-width: 2px;
+  }
 .app-container {
     display: flex;
     flex-direction: column;
@@ -14,7 +35,6 @@ $card-hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     font-family: 'Roboto', sans-serif;
     background: #f4f4f4; // Background color for the entire app
 }
-
 // Header styling
 header {
     background-color: $primary-color;

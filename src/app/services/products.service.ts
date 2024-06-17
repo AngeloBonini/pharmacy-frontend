@@ -35,7 +35,7 @@ export class ProductService {
     { id: '23', name: 'Sildenafil', description: 'Treats ED', price: 10.20, quantityInStock: 150, isControlled: false },
     { id: '24', name: 'Simvastatin', description: 'Cholesterol-lowering', price: 15.34, quantityInStock: 50, isControlled: true}
   ]
-private unsplashUrl = 'https://source.unsplash.com/random/300x200';
+private unsplashUrl = '/api/random/300x200';
 
   constructor( private http: HttpClient) {
   }
@@ -44,9 +44,7 @@ private unsplashUrl = 'https://source.unsplash.com/random/300x200';
     return of(this.products); // Simulating an API call
   }
   getRandomImage(): Observable<Blob> {
-    // Unsplash Source doesn't require API key for simple, random images
-    // For specific images or higher usage, consider signing up for an API key at Unsplash
-    const imageUrl = 'https://source.unsplash.com/random/300x200';
+    console.log('Requesting image from:', this.unsplashUrl);
     return this.http.get(this.unsplashUrl, { responseType: 'blob' });
   }
 }
