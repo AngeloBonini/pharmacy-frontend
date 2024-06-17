@@ -12,13 +12,15 @@ import { UsersListComponent } from './user/users-list/users-list.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersListComponent,
     UserPageComponent,
-    NavbarComponent  // Correctly declared here
+    NavbarComponent,
+    LoginComponent  // Correctly declared here
   ],
   imports: [
     BrowserModule,
