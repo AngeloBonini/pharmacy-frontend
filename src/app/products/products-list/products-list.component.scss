@@ -1,35 +1,38 @@
-// Define color variables for theme consistency
-$primary-color: #1976d2; // Blue for header/footer
-$secondary-color: #ffc107; // Amber for buttons and accents
+// Variables for theme consistency
+$primary-color: #1976d2;
+$secondary-color: #ffc107;
 $text-color: #333;
 $divider-color: #e0e0e0;
 
-
-
 // Card styling
 .product-card {
-    // display: ruby;
-    width: 100%;
+width: 100%;
     max-width: 300px;
     margin: 0.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     overflow: hidden;
-    display: grid;
+display: flex;
     flex-direction: column;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 
-    &:hover {
+&:hover {
         transform: translateY(-5px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
+    .example-card-footer{
+        .mdc-button {
+            padding: 10px 0;
+        }
+    }
+
 }
 
 // Image styling with aspect ratio maintained
 .product-card img {
-    width: 100%;
+width: 100%;
     height: auto;
-        aspect-ratio: 16 / 9; // This ensures images maintain a 16:9 aspect ratio
+    aspect-ratio: 16 / 9; // This ensures images maintain a 16:9 aspect ratio
         object-fit: cover;
     }
     
@@ -55,36 +58,19 @@ $divider-color: #e0e0e0;
         color: #757575;
         margin-bottom: 8px;
     }
-    
-    // Button styling
-    .button {
-        background-color: $secondary-color;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 8px 16px;
-        margin: 4px;
-        cursor: pointer;
-        transition: background-color 0.2s, box-shadow 0.2s;
-        font-size: 1rem;
-    
-        &:hover {
-            background-color: darken($secondary-color, 10%);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-        }
+// Footer styling
+footer {
+    background-color: $primary-color;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+
+
+}
+
+// Responsive adjustments for smaller screens
+@media only screen and (max-width: 600px) {
+    .product-card {
+        max-width: 90%;
     }
-    
-    // Footer styling
-    footer {
-        background-color: $primary-color;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-    }
-    
-    // Responsive adjustments for smaller screens
-    @media only screen and (max-width: 600px) {
-        .product-card {
-            max-width: 90%;
-        }
 }
