@@ -5,8 +5,8 @@ export interface Product {
     name: string;
     description: string;
     price: number;
-    quantityInStock: number;
-    isControlled: boolean;
-    image?: SafeUrl;
+    quantityInStock?: number;
+    isControlled?: boolean;
+    imageUrl?: string;
   }
   

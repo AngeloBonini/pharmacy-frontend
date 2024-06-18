@@ -13,6 +13,7 @@ import { UserPageComponent } from './user/user-page/user-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoginComponent } from './login/login.component';
     RouterModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

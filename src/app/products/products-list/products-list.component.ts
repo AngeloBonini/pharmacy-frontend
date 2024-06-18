@@ -1,4 +1,3 @@
-// src/app/products/product-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
@@ -7,30 +6,24 @@ import { MatCardModule } from '@angular/material/card';
 import { DomSanitizer } from '@angular/platform-browser';
 import {MatIconModule} from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
 import { ProductService } from 'src/app/services/products.service';
-
+import {MatChipsModule} from '@angular/material/chips';
 @Component({
-  selector: 'app-product-list',
+  selector: 'app-products',
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatCardModule, MatIconModule, MatGridListModule]
+  imports: [CommonModule, MatTableModule, MatCardModule, MatIconModule, MatGridListModule, MatChipsModule, MatButtonModule]
 })
 export class ProductListComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'description', 'price', 'quantityInStock', 'isControlled'];
-  dataSource: Product[] = [];
+  products: Product[] = [];
 
-  constructor(private productService: ProductService, private sanitizer: DomSanitizer) {}
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getAllProducts().subscribe((products: Product[]) => {
-      this.dataSource = products;
-      this.dataSource.forEach(product => {
-        this.productService.getRandomImage().subscribe((blob: Blob | MediaSource) => {
-          const objectURL = URL.createObjectURL(blob);
-          product.image = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-        });
-      });
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
     });
   }
 }
