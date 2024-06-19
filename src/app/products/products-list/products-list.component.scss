@@ -6,71 +6,74 @@ $divider-color: #e0e0e0;
 
 // Card styling
 .product-card {
-width: 100%;
-    max-width: 300px;
-    margin: 0.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
-display: flex;
-    flex-direction: column;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  margin: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 
-&:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-    .example-card-footer{
-        .mdc-button {
-            padding: 10px 0;
-        }
-    }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+
+
+  .favorite-button {
+    background-color: $secondary-color;
+    color: white;
+    border-radius: 50%;
+  }
+
 
 }
 
 // Image styling with aspect ratio maintained
 .product-card img {
-width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9; // This ensures images maintain a 16:9 aspect ratio
-        object-fit: cover;
-    }
-    
-    // Content within the card
-    .product-card-content {
-        padding: 16px;
-        flex-grow: 1; // Ensure that content area can grow to fill available space
-    }
-    
-    // Card title and subtitle
-    .product-card-title,
-    .product-card-subtitle {
-        margin: 0;
-    }
-    
-    .product-card-title {
-        font-size: 1.2rem;
-        color: $text-color;
-    }
-    
-    .product-card-subtitle {
-        font-size: 1rem;
-        color: #757575;
-        margin-bottom: 8px;
-    }
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; // This ensures images maintain a 16:9 aspect ratio
+  object-fit: cover;
+}
+
+// Content within the card
+.product-card-content {
+  padding: 16px;
+  flex-grow: 1; // Ensure that content area can grow to fill available space
+}
+
+// Card title and subtitle
+.product-card-title,
+.product-card-subtitle {
+  margin: 0;
+}
+
+.product-card-title {
+  font-size: 1.2rem;
+  color: $text-color;
+}
+
+.product-card-subtitle {
+  font-size: 1rem;
+  color: #757575;
+  margin-bottom: 8px;
+}
+
 // Footer styling
 footer {
-    background-color: $primary-color;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-
-
+  background-color: $primary-color;
+  color: white;
+  padding: 1rem;
+  text-align: center;
 }
 
 // Responsive adjustments for smaller screens
 @media only screen and (max-width: 600px) {
-    .product-card {
-        max-width: 90%;
-    }
+  .product-card {
+    max-width: 90%;
+  }
 }
