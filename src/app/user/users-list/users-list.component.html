@@ -4,17 +4,17 @@
         <form [formGroup]="userForm" (ngSubmit)="addUser()">
             <div class="form-row">
                 <mat-form-field appearance="outline" class="form-field">
-                    <mat-label>Name</mat-label>
+                    <mat-label>Nome</mat-label>
                     <input matInput formControlName="name" />
                 </mat-form-field>
                 <mat-form-field appearance="outline" class="form-field">
-                    <mat-label>Age</mat-label>
+                    <mat-label>ID</mat-label>
                     <input matInput formControlName="age" type="number" />
                 </mat-form-field>
             </div>
             <div class="form-row">
                 <mat-form-field appearance="outline" class="form-field">
-                    <mat-label>Role</mat-label>
+                    <mat-label>Tipo</mat-label>
                     <input matInput formControlName="role" />
                 </mat-form-field>
                 <mat-form-field appearance="outline" class="form-field">
@@ -36,30 +36,24 @@
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 users-table">
         <ng-container matColumnDef="photo">
             <th mat-header-cell *matHeaderCellDef> Photo </th>
-            <td mat-cell *matCellDef="let user"> <img [src]="user.photoUrl" alt="{{user.name}}" class="user-photo" />
-            </td>
+            <td mat-cell *matCellDef="let user"> <img [src]="user.photoUrl" alt="{{user.name}}" class="user-photo" /> </td>
         </ng-container>
-
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let user"> {{user.name}} </td>
+            <td mat-cell *matCellDef="let user"> {{user.nome}} </td>
         </ng-container>
-
         <ng-container matColumnDef="age">
-            <th mat-header-cell *matHeaderCellDef> Age </th>
-            <td mat-cell *matCellDef="let user"> {{user.age}} </td>
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let user"> {{user.id}} </td>
         </ng-container>
-
         <ng-container matColumnDef="role">
             <th mat-header-cell *matHeaderCellDef> Role </th>
-            <td mat-cell *matCellDef="let user"> {{user.role}} </td>
+            <td mat-cell *matCellDef="let user"> {{user.tipo}} </td>
         </ng-container>
-
         <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef> Email </th>
             <td mat-cell *matCellDef="let user"> {{user.email}} </td>
         </ng-container>
-
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> Actions </th>
             <td mat-cell *matCellDef="let user">
@@ -67,7 +61,6 @@
                 <button mat-stroked-button color="warn" (click)="deleteUser(user)">Delete</button>
             </td>
         </ng-container>
-
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="user-row" (click)="selectUser(row)"></tr>
     </table>

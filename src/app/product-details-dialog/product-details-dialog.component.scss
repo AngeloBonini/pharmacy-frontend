@@ -1,0 +1,21 @@
+.product-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain; // Mantém a imagem inteira
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .product-details {
+    width: 100%;
+    max-width: 500px;
+    padding: 16px;
+  }
+  

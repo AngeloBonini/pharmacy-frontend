@@ -9,6 +9,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import { ProductService } from 'src/app/services/products.service';
 import {MatChipsModule} from '@angular/material/chips';
+import { MatDialog } from '@angular/material/dialog';
+import { ProductDetailsDialogComponent } from 'src/app/product-details-dialog/product-details-dialog.component';
 @Component({
   selector: 'app-products',
   templateUrl: './products-list.component.html',
@@ -19,11 +21,16 @@ import {MatChipsModule} from '@angular/material/chips';
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(products => {
       this.products = products;
+    });
+  }
+  openDetails(product: Product): void {
+    this.dialog.open(ProductDetailsDialogComponent, {
+      data: product
     });
   }
 }

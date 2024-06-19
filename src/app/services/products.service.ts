@@ -9,6 +9,7 @@ import { Product } from '../models/product.model';
 })
 export class ProductService {
   private apiUrl = 'http://localhost:3000/produto';
+  private saldoApiUrl = 'http://localhost:3000/saldo';
   private unsplashApiUrl = 'https://api.unsplash.com/search/photos';
   private unsplashAccessKey = 'zCY5HQw_zPhxZubhUmDB3VolJtpstDpUn3oqG_1Qdjw';
 
@@ -32,6 +33,15 @@ export class ProductService {
 
   createProduct(product: Product): Observable<any> {
     return this.http.post(this.apiUrl, product);
+  }
+
+  getSaldo(productId: number): Observable<number> {
+    return this.http.get<any[]>(this.saldoApiUrl).pipe(
+      map(saldos => {
+        const saldo = saldos.find(s => s.produtoId === productId);
+        return saldo ? saldo.quantidade : 0;
+      })
+    );
   }
 
   private getDefaultImage(): Observable<string> {
