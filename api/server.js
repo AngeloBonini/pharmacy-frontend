@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors'); // Import cors
 const app = express();
 const port = 3000;
 
@@ -71,9 +72,25 @@ const mockData = {
 
 // Middleware to parse JSON
 app.use(express.json());
+app.use(cors()); // Enable CORS
 
 // Endpoints
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
+  // Endpoints
+  
+  // Pessoa
 
+  
+  app.get('/pessoa/fornecedores', (req, res) => {
+      const fornecedores = mockData.pessoas.filter(pessoa => pessoa.tipo === 'Fornecedor');
+      console.log(fornecedores)
+      res.json(fornecedores);
+  });
 // Pessoa
 app.get('/pessoa', (req, res) => {
     res.json(mockData.pessoas);

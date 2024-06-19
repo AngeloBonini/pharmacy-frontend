@@ -1,47 +1,56 @@
 import { Injectable } from '@angular/core';
-import { forkJoin, Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable, of, forkJoin } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { Product } from '../models/product.model';
-import { ImageService } from './image.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-  private products: Product[] = [
-    { id: '1', name: 'Aspirin', price: 8.99, description: 'Pain reliever', imageUrl: '' },
-    { id: '2', name: 'Penicillin', price: 15.50, description: 'Antibiotic', imageUrl: '' },
-    { id: '3', name: 'Ibuprofen', price: 12.75, description: 'Anti-inflammatory painkiller', imageUrl: '' },
-    { id: '4', name: 'Paracetamol', price: 5.99, description: 'Fever reducer', imageUrl: '' },
-    { id: '5', name: 'Insulin', price: 45.00, description: 'Diabetes management', imageUrl: '' },
-    { id: '6', name: 'Loratadine', price: 7.00, description: 'Allergy relief', imageUrl: '' },
-    { id: '7', name: 'Amoxicillin', price: 10.00, description: 'Broad spectrum antibiotic', imageUrl: '' },
-    { id: '8', name: 'Metformin', price: 17.00, description: 'Diabetes medication', imageUrl: '' },
-    { id: '9', name: 'Ventolin', price: 25.00, description: 'Asthma inhaler', imageUrl: '' },
-    { id: '10', name: 'Omeprazole', price: 13.00, description: 'Acid reflux treatment', imageUrl: '' },
-    { id: '11', name: 'Warfarin', price: 20.00, description: 'Blood thinner', imageUrl: '' },
-    { id: '12', name: 'Zolpidem', price: 18.00, description: 'Sleep aid', imageUrl: '' },
-  ];
+  private apiUrl = 'http://localhost:3000/produto';
+  private unsplashApiUrl = 'https://api.unsplash.com/search/photos';
+  private unsplashAccessKey = 'zCY5HQw_zPhxZubhUmDB3VolJtpstDpUn3oqG_1Qdjw';
 
-  constructor(private imageService: ImageService) { }
+  constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-    return of(this.products).pipe(
-      switchMap(products => {
-        const imageRequests = products.map(product => {
-          if (!product.imageUrl) {
-            return this.imageService.getImage(product.name).pipe(
-              map(imageUrl => {
-                product.imageUrl = imageUrl;
-                return product;
-              })
-            );
-          } else {
-            return of(product);
-          }
+    return this.http.get<Product[]>(this.apiUrl).pipe(
+      switchMap((products) => {
+        const productRequests = products.map((product) => {
+          return this.getDefaultImage().pipe(
+            map((imageUrl) => {
+              product.imageUrl = imageUrl;
+              return product;
+            })
+          );
         });
-        return imageRequests.length ? forkJoin(imageRequests) : of(products);
+        return forkJoin(productRequests);
       })
+    );
+  }
+
+  createProduct(product: Product): Observable<any> {
+    return this.http.post(this.apiUrl, product);
+  }
+
+  private getDefaultImage(): Observable<string> {
+    const params = new HttpParams()
+      .set('query', 'pills')
+      .set('client_id', this.unsplashAccessKey)
+      .set('per_page', '100');
+    return this.http.get<any>(this.unsplashApiUrl, { params }).pipe(
+      map((response) => {
+        if (response.results && response.results.length > 0) {
+          const randomIndex = Math.floor(
+            Math.random() * response.results.length
+          );
+          return response.results[randomIndex].urls.regular;
+        } else {
+          return 'https://via.placeholder.com/1600x900?text=No+Image';
+        }
+      }),
+      catchError(() => of('https://via.placeholder.com/1600x900?text=No+Image'))
     );
   }
 }

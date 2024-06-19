@@ -21,23 +21,30 @@ $divider-color: #e0e0e0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 
-
-
   .favorite-button {
     background-color: $secondary-color;
     color: white;
     border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
 
-
+  mat-card-subtitle {
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #757575;
+  }
 }
 
 // Image styling with aspect ratio maintained
 .product-card img {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9; // This ensures images maintain a 16:9 aspect ratio
+  aspect-ratio: 9 /4;
   object-fit: cover;
+  border-radius: 15px 15px 0 0;
 }
 
 // Content within the card
@@ -64,11 +71,11 @@ $divider-color: #e0e0e0;
 }
 
 // Footer styling
-footer {
-  background-color: $primary-color;
-  color: white;
-  padding: 1rem;
-  text-align: center;
+.example-card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #f4f4f4;
 }
 
 // Responsive adjustments for smaller screens
