@@ -1,30 +1,35 @@
-<h2>Transactions</h2>
-<mat-table [dataSource]="transactions" class="mat-elevation-z8">
-  <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-  </ng-container>
+<div class="transactions-list">
 
-  <ng-container matColumnDef="produtoId">
-    <mat-header-cell *matHeaderCellDef> Product ID </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.produtoId}} </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="quantidade">
-    <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.quantidade}} </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="tipo">
-    <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.tipo}} </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="data">
-    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.data}} </mat-cell>
-  </ng-container>
-
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+    <h2>Transactions</h2>
+    <mat-table [dataSource]="transactions" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="produtoNome">
+            <mat-header-cell *matHeaderCellDef> Product </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.produtoNome}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="quantidade">
+            <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.quantidade}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="tipo">
+            <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+            <mat-cell *matCellDef="let element" [ngClass]="getTransactionTypeClass(element.tipo)"> 
+                {{element.tipo}} 
+            </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="data">
+            <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{formatDate(element.data)}} </mat-cell>
+        </ng-container>
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

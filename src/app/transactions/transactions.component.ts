@@ -9,7 +9,7 @@ import { Transaction } from '../models/transaction.model';
 })
 export class TransactionsComponent implements OnInit {
   transactions: Transaction[] = [];
-  displayedColumns: string[] = ['id', 'produtoId', 'quantidade', 'tipo', 'data'];
+  displayedColumns: string[] = ['id', 'produtoNome', 'quantidade', 'tipo', 'data'];
 
   constructor(private transactionService: TransactionService) {}
 
@@ -17,5 +17,14 @@ export class TransactionsComponent implements OnInit {
     this.transactionService.getTransactions().subscribe(data => {
       this.transactions = data;
     });
+  }
+
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return date.toLocaleDateString();
+  }
+
+  getTransactionTypeClass(tipo: string): string {
+    return tipo === 'entrada' ? 'entrada' : 'saida';
   }
 }
