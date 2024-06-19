@@ -16,6 +16,8 @@ import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { ProductDetailsDialogComponent } from './product-details-dialog/product-details-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
     NavbarComponent,
     LoginComponent,
     SuppliersComponent,
-    TransactionsComponent  // Correctly declared here
+    TransactionsComponent,
+    ProductDetailsDialogComponent  // Correctly declared here
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
     ReactiveFormsModule,
     MatTableModule,
     MatCardModule,
+    MatDialogModule,
     CommonModule
   ],
   providers: [],

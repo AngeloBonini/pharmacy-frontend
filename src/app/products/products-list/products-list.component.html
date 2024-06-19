@@ -11,11 +11,8 @@
         </mat-card-header>
         <mat-card-subtitle>{{ product.preco | currency }}</mat-card-subtitle>
         <img mat-card-image [src]="product.imageUrl" alt="{{ product.nome }}" loading="lazy" class="rounded-image">
-        <mat-card-content>
-          <p>{{ product.descricao }}</p>
-        </mat-card-content>
         <mat-card-footer class="example-card-footer">
-          <button mat-raised-button color="primary">DETALHES</button>
+          <button mat-raised-button color="primary" (click)="openDetails(product)">DETALHES</button>
         </mat-card-footer>
       </mat-card>
     </mat-grid-tile>

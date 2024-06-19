@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{ product.nome }}</h1>
+<div mat-dialog-content class="dialog-content">
+  <img [src]="product.imageUrl" alt="{{ product.nome }}" class="product-image">
+  <div class="product-details">
+    <p>{{ product.descricao }}</p>
+    <p><strong>Price:</strong> {{ product.preco | currency }}</p>
+    <p><strong>Quantity in stock:</strong> {{ saldo }}</p>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>
