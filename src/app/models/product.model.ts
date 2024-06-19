@@ -1,12 +1,8 @@
-import { SafeUrl } from "@angular/platform-browser";
-
-export interface Product {
-    id: string;
-    name: string;
-    description: string;
-    price: number;
-    quantityInStock?: number;
-    isControlled?: boolean;
-    imageUrl?: string;
-  }
-  
+export type Product = {
+  id: number;
+  nome: string;
+  descricao: string;
+  controlado: boolean;
+  preco: number;
+  imageUrl?: string;
+}

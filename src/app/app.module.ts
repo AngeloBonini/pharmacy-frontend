@@ -14,6 +14,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
+import { SuppliersComponent } from './suppliers/suppliers.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CommonModule } from '@angular/common';
     UsersListComponent,
     UserPageComponent,
     NavbarComponent,
-    LoginComponent  // Correctly declared here
+    LoginComponent,
+    SuppliersComponent,
+    TransactionsComponent  // Correctly declared here
   ],
   imports: [
     BrowserModule,

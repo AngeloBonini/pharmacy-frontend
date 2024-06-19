@@ -1,23 +1,22 @@
 <mat-grid-list cols="4" rowHeight="350px" gutterSize="10px">
     <mat-grid-tile *ngFor="let product of products">
-        <mat-card class="product-card">
-            <mat-card-header>
-                <mat-card-title>
-            {{ product.name }}
-        </mat-card-title>
-        <button mat-icon-button class="favorite-button" aria-label="Favorite">
+      <mat-card class="product-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{ product.nome }}
+          </mat-card-title>
+          <button mat-icon-button class="favorite-button" aria-label="Favorite">
             <mat-icon>favorite</mat-icon>
-        </button>
+          </button>
         </mat-card-header>
-        <mat-card-subtitle>{{ product.price | currency }}</mat-card-subtitle>
-        <img mat-card-image [src]="product.imageUrl" alt="{{ product.name }}" loading="lazy">
+        <mat-card-subtitle>{{ product.preco | currency }}</mat-card-subtitle>
+        <img mat-card-image [src]="product.imageUrl" alt="{{ product.nome }}" loading="lazy" class="rounded-image">
         <mat-card-content>
-        <p>{{ product.description }}</p>
+          <p>{{ product.descricao }}</p>
         </mat-card-content>
         <mat-card-footer class="example-card-footer">
-            <button mat-raised-button color="primary">BUY</button>
-            <button mat-raised-button color="accent" disabled>DETAILS</button>
+          <button mat-raised-button color="primary">DETALHES</button>
         </mat-card-footer>
-        </mat-card>
+      </mat-card>
     </mat-grid-tile>
-</mat-grid-list>
+  </mat-grid-list>
